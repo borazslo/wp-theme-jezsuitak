@@ -20,32 +20,27 @@
 	<?php endif; ?>
 	<?php wp_head(); ?>
 
+<?php if ( $fb = get_theme_mod('facebookpixel_id') ): ?>
 <!-- Facebook Pixel Code -->
-<!--
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window,document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '657739051017859'); 
-fbq('track', 'PageView');
-<?
-// 3192 == //jezsuita.hu/atmeneti-korunk-teologiaja-es-spiritualitasa-charles-taylor-nyoman/
-if (get_the_ID() == 3192) {
-	echo "fbq('track', 'ViewContent');\n";
-}
-?>
-</script>
-<noscript>
- <img height="1" width="1" 
-src="https://www.facebook.com/tr?id=657739051017859&ev=PageView
-&noscript=1"/>
-</noscript>
+	<script>
+		!function(f,b,e,v,n,t,s)
+		{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+		n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+		if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+		n.queue=[];t=b.createElement(e);t.async=!0;
+		t.src=v;s=b.getElementsByTagName(e)[0];
+		s.parentNode.insertBefore(t,s)}(window,document,'script',
+		'https://connect.facebook.net/en_US/fbevents.js');
+		fbq('init', '<?php echo $fb ?>'); 
+		fbq('track', 'PageView');
+	</script>
+	<noscript>
+		<img height="1" width="1" 
+			src="https://www.facebook.com/tr?id=<?php echo $fb ?>&ev=PageView&noscript=1"/>
+	</noscript>
 <!-- End Facebook Pixel Code -->
+<?php endif; ?>
+
 
 <link rel="apple-touch-icon" sizes="57x57" href="//jezsuita.hu/wp-content/themes/jezsuitak/images/favicon/apple-icon-57x57.png">
 <link rel="apple-touch-icon" sizes="60x60" href="//jezsuita.hu/wp-content/themes/jezsuitak/images/favicon/apple-icon-60x60.png">
