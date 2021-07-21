@@ -220,6 +220,70 @@ function filter_menu_items($item) {
 }
 */
 
+// custom theme settings
+/**
+ * Add postMessage support for site title and description for the Customizer.
+ *
+ * @since Twenty Thirteen 1.0
+ *
+ * @param WP_Customize_Manager $wp_customize Customizer object.
+ * @return void
+ */
+function twentythirteen_customize_register( $wp_customize ) {
+	//$wp_customize->get_setting( 'blogname' )->transport         = 'postMessage';
+	//$wp_customize->get_setting( 'blogdescription' )->transport  = 'postMessage';
+	//$wp_customize->get_setting( 'header_textcolor' )->transport = 'postMessage';
+	
+		
+	$wp_customize->add_section( 'sample_custom_controls_section',
+	   array(
+		  'title' => __( 'Google Analytics Code' ),
+		  'description' => esc_html__( 'These are an example of Customizer Custom Controls.' ),
+		  
+		  'priority' => 160, // Not typically needed. Default is 160
+		  'capability' => 'edit_theme_options', // Not typically needed. Default is edit_theme_options
+		  'theme_supports' => '', // Rarely needed
+		  'active_callback' => '', // Rarely needed
+		  'description_hidden' => 'false', // Rarely needed. Default is False
+	   )
+	);
+
+	$wp_customize->add_setting( 'googleanalytics_id',
+	   array(
+		  'default' => '',
+		  'transport' => 'postMessage', //refresh postMessage
+		  'sanitize_callback' => 'googleanalytics_id_sanitization'
+		  )
+	);
+ 
+	$wp_customize->add_control( 'googleanalytics_id',
+	   array(
+		  'label' => __( 'Google Analytics ID' ),     
+		  'section' => 'sample_custom_controls_section',
+		  'priority' => 10, // Optional. Order priority to load the control. Default: 10
+		  'type' => 'text', // Can be either text, email, url, number, hidden, or date
+		  'capability' => 'edit_theme_options', // Optional. Default: 'edit_theme_options'
+		  'input_attrs' => array( // Optional.
+			 'class' => 'my-custom-class',
+			 'style' => 'border: 1px solid rebeccapurple',
+			 'placeholder' => __( 'Enter ID...' ),
+		  ),
+	   )
+	);
+		
+	
+
+}
+add_action( 'customize_register', 'twentythirteen_customize_register' );
+
+function googleanalytics_id_sanitization($text) {
+	if($text == '') return '';
+	if(preg_match('/^ua-\d{4,9}-\d{1,4}$/i',$text)) return $text;
+	return null;
+}
+
+
+
 /**
  * Twenty Sixteen functions and definitions
  *

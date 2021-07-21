@@ -21,6 +21,7 @@
 	<?php wp_head(); ?>
 
 <!-- Facebook Pixel Code -->
+<!--
 <script>
 !function(f,b,e,v,n,t,s)
 {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -37,7 +38,6 @@ fbq('track', 'PageView');
 if (get_the_ID() == 3192) {
 	echo "fbq('track', 'ViewContent');\n";
 }
-
 ?>
 </script>
 <noscript>
@@ -75,16 +75,7 @@ src="https://www.facebook.com/tr?id=657739051017859&ev=PageView
   js.src = "//connect.facebook.net/hu_HU/sdk.js#xfbml=1&version=v2.8";
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
-  ga('create', 'UA-10397001-21', 'auto');
-  ga('send', 'pageview');
-
-</script>
 <div id="page" class="site">
 	<div class="site-inner">
 		<a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', 'twentysixteen' ); ?></a>
