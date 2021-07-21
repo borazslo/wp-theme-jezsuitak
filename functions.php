@@ -7,7 +7,7 @@ $myUpdateChecker = Puc_v4_Factory::buildUpdateChecker(
 	'jezsuitak-theme'
 );
 //Set the branch that contains the stable release.
-$myUpdateChecker->setBranch('stable-branch-name');
+$myUpdateChecker->setBranch('main');
 
 //remove popup_% from editor custom filed selected list
 add_filter( 'postmeta_form_limit', 'wpse_73543_hide_meta_start' );
