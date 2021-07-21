@@ -4,7 +4,7 @@ Theme URI: https://github.com/borazslo/wp-theme-jezsuitak
 Author: the jezsuitak team
 Author URI: https://jezsuita.hu/
 Description: Jezsuita / JTMR theme based on TwentySixteen 1.2
-Version: 1.3.2
+Version: 1.3.3
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: black, blue, gray, red, white, yellow, dark, light, one-column, two-columns, right-sidebar, fixed-layout, responsive-layout, accessibility-ready, custom-background, custom-colors, custom-header, custom-menu, editor-style, featured-images, flexible-header, microformats, post-formats, rtl-language-support, sticky-post, threaded-comments, translation-ready
@@ -112,7 +112,7 @@ ul.getpostbycat li::before {
 }
 
 
-.jezsuitamainlogo {
+.jezsuitamainlogo, .custom-logo {
 	height: 70px;
 }
 .postmoddate {
@@ -1888,9 +1888,18 @@ blockquote:after,
 
 .site-branding {
 	z-index: 100;
-	position: absolute;
-	margin: 10px;
+	/* position: absolute; */
+	margin: auto;
 	top: 0px;
+	height: 120px;
+	padding: 35px;
+	padding-left: 0px;
+	color: #BA0527;
+}
+
+
+.custom-logo {
+		float: left;
 }
 
 .custom-logo-link {
@@ -1899,6 +1908,7 @@ blockquote:after,
 
 .custom-logo {
 	max-width: 180px;
+	margin-right: 15px;
 }
 
 .site-title {
@@ -1911,7 +1921,7 @@ blockquote:after,
 }
 
 .site-branding .site-title a {
-	color: #1a1a1a;
+	color: #BA0527;
 }
 
 .site-branding .site-title a:hover,
@@ -3280,7 +3290,11 @@ p > video {
 @media screen and (min-width: 56.875em) {
 	.jezsuitamainlogo {
 		margin: 30px 10px 30px 10px;
-		height: 100px;
+		/* height: 100px; */
+	}
+	
+	.site-branding {
+		margin-bottom: 10px;
 	}
 
 	.entry-title {

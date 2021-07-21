@@ -389,8 +389,8 @@ function twentysixteen_setup() {
 	 *  @since Twenty Sixteen 1.2
 	 */
 	add_theme_support( 'custom-logo', array(
-		'height'      => 240,
-		'width'       => 240,
+		'height'      => 70,
+		'width'       => 70,
 		'flex-height' => true,
 	) );
 

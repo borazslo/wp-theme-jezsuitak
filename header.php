@@ -77,7 +77,24 @@
 
 		<header id="masthead" class="site-header" role="banner">
 
-			<a href="//jezsuita.hu/"><img src="//jezsuita.hu/wp-content/themes/jezsuitak/images/logo.svg" class="jezsuitamainlogo" alt="Jezsuita logo" /></a>
+			<!--<a href="//jezsuita.hu/"><img src="//jezsuita.hu/wp-content/themes/jezsuitak/images/logo.svg" class="jezsuitamainlogo" alt="Jezsuita logo" /></a>-->
+
+<div class="site-slider">
+				<div class="site-branding">
+					<?php twentysixteen_the_custom_logo(); ?>
+
+					<?php if ( is_front_page() && is_home() ) : ?>
+						<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
+					<?php else : ?>
+						<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
+					<?php endif;
+
+					$description = get_bloginfo( 'description', 'display' );
+					if ( $description || is_customize_preview() ) : ?>
+						<p class="site-description"><?php echo $description; ?></p>
+					<?php endif; ?>
+
+				</div><!-- .site-branding -->
 
 			<div class="site-header-main">
 
@@ -113,22 +130,7 @@
 				<?php endif; ?>
 			</div><!-- .site-header-main -->
 
-			<div class="site-slider">
-				<div class="site-branding">
-					<?php twentysixteen_the_custom_logo(); ?>
-
-<!--					<?php if ( is_front_page() && is_home() ) : ?>
-						<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-					<?php else : ?>
-						<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
-					<?php endif;
-
-					$description = get_bloginfo( 'description', 'display' );
-					if ( $description || is_customize_preview() ) : ?>
-						<p class="site-description"><?php echo $description; ?></p>
-					<?php endif; ?>
--->
-				</div><!-- .site-branding -->
+			
 
 			</div>
 
