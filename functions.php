@@ -2,10 +2,12 @@
 
 require 'plugin-update-checker-4.11/plugin-update-checker.php';
 $myUpdateChecker = Puc_v4_Factory::buildUpdateChecker(
-	'https://konyvjelzo.jezsuita.hu/wp-themes/jezsuitak.json',
+	'https://github.com/borazslo/wp-theme-jezsuitak',
 	__FILE__, //Full path to the main plugin file or functions.php.
-	'unique-plugin-or-theme-slug'
+	'jezsuitak-theme'
 );
+//Set the branch that contains the stable release.
+$myUpdateChecker->setBranch('stable-branch-name');
 
 //remove popup_% from editor custom filed selected list
 add_filter( 'postmeta_form_limit', 'wpse_73543_hide_meta_start' );
