@@ -9,6 +9,58 @@ $myUpdateChecker = Puc_v4_Factory::buildUpdateChecker(
 //Set the branch that contains the stable release.
 $myUpdateChecker->setBranch('main');
 
+
+/* 2021-08-21 by borazslo */
+function wporg_block_data($block, $source_block  ) {
+	
+    if ( $block['blockName'] === 'core/latest-posts' ) {
+	
+		if(isset($block['attrs']['displayPostContent']) AND $block['attrs']['displayPostContent'] == 1 ) {
+			$classToAdd = 'has-post-content';
+			if(isset($block['attrs']['className'])) $block['attrs']['className'] .= " ".$classToAdd;
+			else $block['attrs']['className'] = $classToAdd;
+		} else {
+			$classToAdd = 'has-not-post-content';
+			if(isset($block['attrs']['className'])) $block['attrs']['className'] .= " ".$classToAdd;
+			else $block['attrs']['className'] = $classToAdd;		
+		}
+		      
+    } 
+    
+	return $block;
+}
+add_filter( 'render_block_data', 'wporg_block_data',  10, 2 );
+
+add_action('init', function() {
+	$inline_css = '
+		.is-style-post-list a  { display:block; font-weight: 600; text-transform: uppercase; color: #1a1a1a  } 
+		.is-style-post-list a.more-link  { display: revert; font-weight: revert; text-transform: revert; color: revert  } 
+		.is-style-post-list .wp-block-latest-posts__post-date, .is-style-post-list .wp-block-latest-posts__post-author { float: left; } 
+		
+		.is-style-post-list img {
+			margin: 5px 10px 10px 0px !important;
+			position: relative;
+			float: left;
+		}
+		
+		.is-style-post-list.has-author .wp-block-latest-posts__post-date { margin-left: 5px; }
+		.is-style-post-list.has-author .wp-block-latest-posts__post-date::before { content : "(" }
+		.is-style-post-list.has-author .wp-block-latest-posts__post-date::after { content : ")" }
+		.is-style-post-list.has-author .wp-block-latest-posts__post-excerpt, 
+		.is-style-post-list.has-dates .wp-block-latest-posts__post-excerpt { margin-top: 1.4em; }
+		';
+	
+	register_block_style('core/latest-posts', [
+		'name' => 'post-list',
+		'label' => __('Post list style', 'txtdomain'),
+		'inline_style' => $inline_css
+	]);
+});
+/* end of borazslo's */
+
+
+
+
 //remove popup_% from editor custom filed selected list
 add_filter( 'postmeta_form_limit', 'wpse_73543_hide_meta_start' );
 function wpse_73543_hide_meta_start( $num ) {

@@ -77,7 +77,6 @@
 
 		<header id="masthead" class="site-header" role="banner">
 
-			<!--<a href="//jezsuita.hu/"><img src="//jezsuita.hu/wp-content/themes/jezsuitak/images/logo.svg" class="jezsuitamainlogo" alt="Jezsuita logo" /></a>-->
 
 <div class="site-slider">
 				<div class="site-branding">
